@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
 import { Auth } from "aws-amplify";
+import { useCookies } from 'react-cookie'
+
 
 class LogIn extends Component {
+
 
 
     constructor(props){
@@ -31,6 +34,7 @@ class LogIn extends Component {
   };
 
   handleSubmit = async event => {
+      const [cookies, setCookie] = useCookies(['access_token'])
     event.preventDefault();
 
     // Form validation
@@ -50,7 +54,8 @@ class LogIn extends Component {
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
-    }catch(error) {
+        setCookie('access_token', user, {path: "/", domain: ".netlify.app"})
+      }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
       this.setState({
