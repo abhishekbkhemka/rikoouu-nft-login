@@ -9,8 +9,44 @@ import ForgotPasswordVerification from './components/auth/ForgotPasswordVerifica
 import ChangePassword from './components/auth/ChangePassword';
 import ChangePasswordConfirm from './components/auth/ChangePasswordConfirm';
 import Welcome from './components/auth/Welcome';
-import { Auth } from 'aws-amplify';
 import LogIn from "../src/components/auth/LogIn";
+import Amplify, { Auth } from 'aws-amplify';
+
+Amplify.configure({
+    Auth: {
+
+        // REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
+        identityPoolId: 'us-east-2_TLJFgUkW1',
+
+        // REQUIRED - Amazon Cognito Region
+        region: 'us-east-2',
+
+
+
+        // OPTIONAL - Amazon Cognito User Pool ID
+        userPoolId: 'us-east-2_TLJFgUkW1',
+        userPoolWebClientId:'7cl7s4he1663ugelo1ulsic8ae',
+
+
+
+        // OPTIONAL - Configuration for cookie storage
+        // Note: if the secure flag is set to true, then the cookie transmission requires a secure protocol
+        cookieStorage: {
+            // REQUIRED - Cookie domain (only required if cookieStorage is provided)
+            domain: '.netlify.com',
+            // OPTIONAL - Cookie path
+            path: '/',
+            // OPTIONAL - Cookie expiration in days
+            expires: 365,
+            // OPTIONAL - See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+            sameSite: "strict" | "lax",
+            // OPTIONAL - Cookie secure flag
+            // Either true or false, indicating if the cookie transmission requires a secure protocol (https).
+            secure: true
+        },
+
+    }
+});
 
 class App extends Component {
   state = {
