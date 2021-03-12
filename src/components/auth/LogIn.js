@@ -57,7 +57,7 @@ class LogIn extends Component {
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
-        cookie.save('access_token', user, {path: "/", domain: "https://*.rikoouu.com"})
+        cookie.save('access_token', user, {path: "/", domain: "https://*.rikoouu.com", secure:true})
       }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
