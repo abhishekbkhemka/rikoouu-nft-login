@@ -57,7 +57,7 @@ class LogIn extends Component {
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
-        cookie.save('access_token', user, {path: "/", domain: ".netlify.app"})
+        cookie.save('access_token', user, {path: "/", domain: "https://*.netlify.app"})
       }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
