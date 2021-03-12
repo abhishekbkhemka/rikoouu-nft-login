@@ -10,7 +10,7 @@ import ChangePassword from './components/auth/ChangePassword';
 import ChangePasswordConfirm from './components/auth/ChangePasswordConfirm';
 import Welcome from './components/auth/Welcome';
 import { Auth } from 'aws-amplify';
-import LogIn from "./components/auth/LogIn";
+import LogIn from "../src/components/auth/LogIn";
 
 class App extends Component {
   state = {
