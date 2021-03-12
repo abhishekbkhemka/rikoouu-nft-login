@@ -44,6 +44,7 @@ Amplify.configure({
             // Either true or false, indicating if the cookie transmission requires a secure protocol (https).
             secure: true
         },
+        authenticationFlowType: 'USER_PASSWORD_AUTH',
 
     }
 });
