@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
-import { Auth, Hub, Logger } from "aws-amplify";
+import { Auth } from "aws-amplify";
 
 class LogIn extends Component {
 
