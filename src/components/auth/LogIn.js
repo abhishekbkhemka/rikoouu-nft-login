@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
 import { Auth } from "aws-amplify";
-import { useCookies } from 'react-cookie'
+import cookie from 'react-cookies'
 
 
 class LogIn extends Component {
@@ -14,7 +14,10 @@ class LogIn extends Component {
         Auth.currentAuthenticatedUser()
 
 
- }
+
+
+
+    }
   state = {
     username: "",
     password: "",
@@ -34,8 +37,8 @@ class LogIn extends Component {
   };
 
   handleSubmit = async event => {
-      const [cookies, setCookie] = useCookies(['access_token'])
-    event.preventDefault();
+
+      event.preventDefault();
 
     // Form validation
     this.clearErrorState();
@@ -49,13 +52,12 @@ class LogIn extends Component {
     // AWS Cognito integration here
     try {
 
-      const user = await Auth.signIn(this.state.username, this.state.password);
+        const user = await Auth.signIn(this.state.username, this.state.password);
       console.log(user);
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
-      console.log(cookies)
-        setCookie('access_token', user, {path: "/", domain: ".netlify.app"})
+        cookie.save('access_token', user, {path: "/", domain: ".netlify.app"})
       }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
