@@ -1,0 +1,10 @@
+{
+  "api": { 
+    "invokeUrl": "https://rekoouu-demo.auth.us-east-2.amazoncognito.com"
+  },
+  "cognito": {
+    "REGION": "us-east-2",
+    "USER_POOL_ID": "us-east-2_TLJFgUkW1",
+    "APP_CLIENT_ID": "7cl7s4he1663ugelo1ulsic8ae"
+  }
+}
