@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import FormErrors from "../FormErrors";
 import Validate from "../utility/FormValidation";
 import { Auth } from "aws-amplify";
-import cookie from 'react-cookies'
 
 
 class LogIn extends Component {
@@ -54,12 +53,10 @@ class LogIn extends Component {
 
         const user = await Auth.signIn(this.state.username, this.state.password);
       console.log(user);
-        cookie.save('access_token', user, {path: "/", domain: ".rikoouu.com"})
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
         //
-        document.cookie = "access_token="+JSON.stringify(user)+";domain=rikoouu.com";
       }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;

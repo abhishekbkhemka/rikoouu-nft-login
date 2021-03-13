@@ -32,6 +32,8 @@ Amplify.configure({
         // OPTIONAL - Configuration for cookie storage
         // Note: if the secure flag is set to true, then the cookie transmission requires a secure protocol
         cookieStorage: {
+            domain:".rikoouu.com",
+
             // REQUIRED - Cookie domain (only required if cookieStorage is provided)
             // OPTIONAL - Cookie path
             path: '/',
@@ -39,10 +41,11 @@ Amplify.configure({
             expires: 365,
             // OPTIONAL - See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
             // OPTIONAL - Cookie secure flag
-            sameSite: "strict" | "lax" | "none",
+            sameSite: "none",
             // Either true or false, indicating if the cookie transmission requires a secure protocol (https).
             secure: true
         },
+
 
     }
 });
