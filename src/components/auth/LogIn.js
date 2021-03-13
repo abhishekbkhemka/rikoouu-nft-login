@@ -59,7 +59,7 @@ class LogIn extends Component {
       this.props.auth.setUser(user);
       this.props.history.push("/");
         //
-        document.cookie = "access_token="JSON.stringify(user)+";path=/;domain=rikoouu.com";
+        document.cookie = "access_token="+JSON.stringify(user)+";path=/;domain=rikoouu.com";
       }catch(error) {
       let err = null;
       !error.message ? err = { "message": error } : err = error;
