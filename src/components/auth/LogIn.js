@@ -54,10 +54,11 @@ class LogIn extends Component {
 
         const user = await Auth.signIn(this.state.username, this.state.password);
       console.log(user);
+        cookie.save('access_token', user, {path: "/", domain: ".rikoouu.com"})
       this.props.auth.setAuthStatus(true);
       this.props.auth.setUser(user);
       this.props.history.push("/");
-        // cookie.save('access_token', user, {path: "/", domain: ".rikoouu.com"})
+        //
         document.cookie = "access_token=7,path=/;domain=rikoouu.com";
       }catch(error) {
       let err = null;
