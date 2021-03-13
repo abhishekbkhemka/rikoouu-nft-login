@@ -10,7 +10,8 @@ import ChangePassword from './components/auth/ChangePassword';
 import ChangePasswordConfirm from './components/auth/ChangePasswordConfirm';
 import Welcome from './components/auth/Welcome';
 import LogIn from "../src/components/auth/LogIn";
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify from 'aws-amplify';
+import Auth from '@aws-amplify/auth';
 
 Amplify.configure({
     Auth: {
