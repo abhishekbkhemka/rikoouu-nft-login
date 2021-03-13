@@ -44,7 +44,6 @@ Amplify.configure({
             // OPTIONAL - Cookie secure flag
             sameSite: "strict",
             // Either true or false, indicating if the cookie transmission requires a secure protocol (https).
-            secure: true
         },
 
 
